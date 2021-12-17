@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    background: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.hover:hover {
+    background:#e8c1f0;
+    color: black;
+}
+
+.hover-font:hover {
+    color: #e8c1f0;
+}
+
+
+/* Start Page */
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+}
+
+.start {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 50%;
+}
+
+.start p {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.start-btn {
+    background:purple;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 10px;
+}
+
+
+/* Questions Section */
+
+.question {
+
+}
+
+.option-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: purple;
+    border-radius: 15px;
+    color: white;
+    margin: 10px;
+    width: 80vw;
+    height: 30px;
+
+}
+
+.q-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.q-answer {
+    color: grey;
+    border-top: 1px solid grey;
+    font-style: italic;
+    font-weight: lighter;
+}
