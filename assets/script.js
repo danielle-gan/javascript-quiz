@@ -5,9 +5,7 @@ var questionNum = 1;
 
 var quizScore = 0;
 
-let duration = 0;
-let seconds = 10;
-
+seconds=100;
 
 //global arrays
 //array for questions (currently placeholders)
@@ -20,92 +18,102 @@ let option3 = ["c1","c2","c3","c4","c5","c6","c7","c8","c9","c10"];
 let option4 = ["d1","d2","d3","d4","d5","d6","d7","d8","d9","d10"];
 
 //placeholder array for right questions
-let correctAnswers = ["a1","c2","d3","a5","a6","b7","c8","c9","d10"]
+let correctAnswers = ["a1","c2","d3","b4","a5","a6","b7","c8","c9","d10"]
 
 //array to keep track of highscores to input into highscore table
 let highScores = [];
+let scorers = [];
 
-//timer
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-        seconds = parseInt(timer);
+if (window.location.href == "./questions.html") {
+    //display the first question and options
+    document.getElementById('question').innerHTML=questions[questionNum-1];
+    document.getElementById('A').innerHTML=option1[questionNum-1];
+    document.getElementById('B').innerHTML=option2[questionNum-1];
+    document.getElementById('C').innerHTML=option3[questionNum-1];
+    document.getElementById('D').innerHTML=option4[questionNum-1];
 
-        display.textContent = seconds;
+    //timer
+    var time = setInterval(timer, 1000);
 
-        if (seconds < 1) {
-            // endGame();
-            console.log("end game");
-        }
+    function timer() {
+        seconds--;
+        document.getElementById('time').innerHTML = seconds;
 
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-};
-
-window.onload = function () {
-    var hundredSec = 100,
-        display = document.querySelector('#time');
-    startTimer(hundredSec, display);
-};
-
-// function to handle clicking on an answer to a question
-    // if answer is correct add points to quizScore, go to the next question and change "question-answer" --> for first question, "question-answer" should not be visible
-    // if answer is wrong take time off of timer, go to next question, and change question answer
-
-function guess(option) {
-    console.log(questionNum);
-    
-    if (option == "1") {
-        if (option1[questionNum-1] == correctAnswers[questionNum-1]) {
-            quizScore+= 10;
-            console.log(quizScore)
+        if (seconds < 0) {
+            clearInterval(time);
+            alert("your time... has finished");
+            return window.location.assign('./end.html');
         }
     }
 
-    else if (option == "2") {
-        if (option2[questionNum-1] == correctAnswers[questionNum-1]) {
-            quizScore+= 10;
-            console.log(quizScore)
+    // function checks if answer is correct and does cool shit
+    function guess(option) {
+        console.log(questionNum);
+        
+        if (option == "1") {
+            if (option1[questionNum-1] == correctAnswers[questionNum-1]) {
+                quizScore+= 10;
+                console.log(quizScore)
+                document.getElementById('q-answer').innerHTML = "Correct!"
+            }
+            else (seconds -= 5, document.getElementById('q-answer').innerHTML = "Incorrect!");
         }
-    }
 
-    else if (option == "3") {
-        if (option3[questionNum-1] == correctAnswers[questionNum-1]) {
-            quizScore+= 10;
-            console.log(quizScore)
+        else if (option == "2") {
+            if (option2[questionNum-1] == correctAnswers[questionNum-1]) {
+                quizScore+= 10;
+                console.log(quizScore)
+                document.getElementById('q-answer').innerHTML = "Correct!"
+            }
+            else (seconds -= 5, document.getElementById('q-answer').innerHTML = "Incorrect!");
         }
-    }
 
-    else if (option == "4") {
-        if (option4[questionNum-1] == correctAnswers[questionNum-1]) {
-            quizScore+= 10;
-            console.log(quizScore)
+        else if (option == "3") {
+            if (option3[questionNum-1] == correctAnswers[questionNum-1]) {
+                quizScore+= 10;
+                console.log(quizScore)
+                document.getElementById('q-answer').innerHTML = "Correct!"
+            }
+            else (seconds -= 5, document.getElementById('q-answer').innerHTML = "Incorrect!");
         }
-    }
 
-    questionNum++;
-    
+        else if (option == "4") {
+            if (option4[questionNum-1] == correctAnswers[questionNum-1]) {
+                quizScore+= 10;
+                console.log(quizScore)
+                document.getElementById('q-answer').innerHTML = "Correct!"
+            }
+            else (seconds -= 5, document.getElementById('q-answer').innerHTML = "Incorrect!");
+        }
+
+        questionNum++;
+        if (questionNum > 10) {
+            alert("Nice job!");
+            highScores.push(quizScore);
+            return window.location.assign('./end.html');
+        }
+
+        document.getElementById('question').innerHTML=questions[questionNum-1];
+        document.getElementById('A').innerHTML=option1[questionNum-1];
+        document.getElementById('B').innerHTML=option2[questionNum-1];
+        document.getElementById('C').innerHTML=option3[questionNum-1];
+        document.getElementById('D').innerHTML=option4[questionNum-1];
+        
+    };
+
+    document.getElementById('A').onclick=function(e) {
+        guess(1);
+    };
+
+    document.getElementById('B').onclick=function(e) {
+        guess(2);
+    };
+
+    document.getElementById('C').onclick=function(e) {
+        guess(3);
+    };
+
+    document.getElementById('D').onclick=function(e) {
+        guess(4);
+    };
 };
-
-document.getElementById('A').onclick=function(e) {
-    guess(1);
-};
-
-document.getElementById('B').onclick=function(e) {
-    guess(2);
-};
-
-document.getElementById('C').onclick=function(e) {
-    guess(3);
-};
-
-document.getElementById('D').onclick=function(e) {
-    guess(4);
-};
-
-
-//play again function
-
-//go to highscores function

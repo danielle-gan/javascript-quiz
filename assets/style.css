@@ -112,3 +112,35 @@ ul {
     display: flex;
     flex-direction: column;
 }
+
+
+/* end section */
+
+.end-btn {
+    background:purple;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 5px 5px;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 1em;
+}
+
+.form {
+    margin: 2vw;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.end-btns {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* high score section */
+
+
