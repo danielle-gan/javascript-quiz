@@ -20,11 +20,8 @@ let option4 = ["d1","d2","d3","d4","d5","d6","d7","d8","d9","d10"];
 //placeholder array for right questions
 let correctAnswers = ["a1","c2","d3","b4","a5","a6","b7","c8","c9","d10"]
 
-//arrays to keep track of scores and names
-let scores = [];
-let highScores = [];
-let scorers = [];
-
+//arrays to keep track of scores
+var scores = [];
 
 //display the first question and options
 document.getElementById('question').innerHTML=questions[questionNum-1];
@@ -47,7 +44,7 @@ function timer() {
     }
 };
 
-// function checks if answer is correct and does cool shit
+// function checks if answer is correct and acts accordingly
 function guess(option) {
     console.log(questionNum);
     
@@ -94,8 +91,11 @@ function guess(option) {
     questionNum++;
     if (questionNum > 10) {
         alert("Nice job!");
-        highScores.push(quizScore);
-        return window.location.assign('./end.html');
+        scores=JSON.parse(localStorage.getItem('score')) || [];
+        scores.push(quizScore);
+        console.log(scores);
+        localStorage.setItem('score',JSON.stringify(scores));
+        return location.assign('./end.html');
     }
 
     document.getElementById('question').innerHTML=questions[questionNum-1];
