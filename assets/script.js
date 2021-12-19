@@ -9,16 +9,16 @@ var seconds=100;
 
 //global arrays
 //array for questions (currently placeholders)
-let questions = ["1","2","3","4","5","6","7","8","9","10"];
+let questions = ["Inside which HTML element do we put the Javascript?","What is the correct JavaScript syntax to write 'Hello World'?","Where is the correct place to insert a JavaScript?","How do you create a function?","How do you call myFunction?","How does a for loop start?","How do you add a comment in JavaScript?","How do you round a number to the nearest whole number?","Which HTML attribute is used to define inline styles?","How do you write 'hello world' in an alert box?"];
 
 //placeholder answer options
-let option1 = ["a1","a2","a3","a4","a5","a6","a7","a8","a9","a10"];
-let option2 = ["b1","b2","b3","b4","b5","b6","b7","b8","b9","b10"];
-let option3 = ["c1","c2","c3","c4","c5","c6","c7","c8","c9","c10"];
-let option4 = ["d1","d2","d3","d4","d5","d6","d7","d8","d9","d10"];
+let option1 = ["javascript","response.write('hello world')","outside of the html tags","function:myFunction()","call myFunction","for(i=0; i<=5)","//this is a comment","Math.round()","style","msgBox('hello world'"];
+let option2 = ["js","'Hello World'","the <body> section","function=myFunction()","myFunction()","for(i=0;i<=5; i++)","This is a comment","Math.rnd()","font","alert('Hello World')"];
+let option3 = ["script","document.write('Hello World')","the head section","function myFunction()","call function myFunction()","for i=1 to 5","!!This is a comment","round()","class","alertBox='hello world'"];
+let option4 = ["scripting","('Hello World')","either the head or the body section","myFunction():function","Call.myFunction()","for (i<=5; i++)","#this is a comment","rnd()","styles","alertBox('hello world')"];
 
 //placeholder array for right questions
-let correctAnswers = ["a1","c2","d3","b4","a5","a6","b7","c8","c9","d10"]
+let correctAnswers = ["script","document.write('Hello World')","either the head or the body section","function myFunction()","myFunction()","for(i=0;i<=5; i++)","//this is a comment","Math.round()","style","alert('Hello World')"]
 
 //arrays to keep track of scores
 var scores = [];
