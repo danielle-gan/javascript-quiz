@@ -11,15 +11,15 @@ let highScorers=[];
 console.log(score); 
 console.log(scorer);
 
-//this function is going to rank the highscores
+//this function is going to rank the highscores... apparently I can't put an item in an array at a specified index easily... but. i'll figure it out. 
 function orderScores() {
     for (var i = highScores.length; i >= highScores.length; i--) {
         if (score[i] < scores[i]) {
             console.log("you lost to " + scorers[i]);
-            score.push(highScores);
-            scorer.push(highScorers)
+            score.push(highScores[i]);
+            scorer.push(highScorers[i])
         }
-        else (console.log("you beat" + scorers[i]), console.log(highScores, highScorers));
+        else (console.log("you beat" + scorers[i]), console.log(highScores, highScorers), scorer.push(highScorer[i+1]), score.push(highScores[i]));
     };
 };
 
