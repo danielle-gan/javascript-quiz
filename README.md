@@ -11,4 +11,4 @@
 
 ## Link
 
-![Link](https://danielle-gan.github.io/javascript-quiz/index.html) to live website 
+![Link](https://danielle-gan.github.io/javascript-quiz/) to live website 
